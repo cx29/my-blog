@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<pre><code>```
+.
+├── README.md                # 项目说明文档
+├── eslint.config.mjs         # ESLint 配置（使用 Flat Config）
+├── jsconfig.json             # JS 路径别名（比如 @/lib/posts）
+├── next.config.mjs           # Next.js 配置文件
+├── package.json              # 项目基本信息 + 依赖
+├── postcss.config.mjs        # Tailwind CSS/PostCSS 配置（如果用的话）
+├── public/                   # 静态资源 (图片、favicon等)
+└── src/
+    ├── app/                  # App Router 根目录
+    │   ├── layout.js         # 整个应用的布局（全局布局）
+    │   ├── page.js           # 首页页面，展示文章列表
+    │   └── posts/            # 动态路由，单篇文章页
+    ├── lib/                  # 封装逻辑（比如读 Markdown）
+    │   └── posts.js          # Markdown 解析和数据处理
+    ├── posts/                # 文章存放地 (Markdown 文件)
+    │   └── hello-world.md
+    └── styles/               # 全局样式文件
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</code></pre>
