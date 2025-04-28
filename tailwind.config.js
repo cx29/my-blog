@@ -1,11 +1,11 @@
 /**@type{import('tailwindcss').Config}*/
-
-export default{
-  content:[
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",//扫描src目录 
+import lineClamp from '@tailwindcss/line-clamp';
+export default {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx,mdx}', //扫描src目录
   ],
-  theme:{
-    extend:{},
+  theme: {
+    extend: {},
   },
-  plugins:[],
-}
+  plugins: [lineClamp],
+};
