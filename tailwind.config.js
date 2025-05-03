@@ -1,11 +1,9 @@
-/**@type{import('tailwindcss').Config}*/
-import lineClamp from '@tailwindcss/line-clamp';
-export default {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx,mdx}', //扫描src目录
-  ],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: 'class',
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {},
   },
-  plugins: [lineClamp],
+  plugins: [require('@tailwindcss/line-clamp')],
 };

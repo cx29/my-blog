@@ -2,20 +2,17 @@
  * 全局布局
  */
 import '@/styles/globals.css'; //引入全局样式
-
-//定义全局页面metadata（SEO友好）
-export const metadata = {
-  title: 'My Blog', //网页标题
-  description: 'A static blog built with Next.js and Markdown', //描述信息
-};
+import ThemeToggle from '@/app/components/ThemeToggle';
 
 //根布局组件
 export default function RootLayout({ children }) {
   return (
-    <html lang="zh-CN">
-      <head />
-      <body className="max-w-2xl mx-auto p-6 bg-white text-gray-800">
-        {children}
+    <html lang="zh-CN" className="dark">
+      <head>
+        <link rel="icon" href="/my-blog/favicon.ico" />
+      </head>
+      <body className="bg-black dark:bg-black text-gray-800 dark:text-gray-100 transition-colors">
+        <div className="bg-black">Test</div>
       </body>
     </html>
   );
