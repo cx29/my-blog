@@ -7,12 +7,13 @@ import ThemeToggle from '@/app/components/ThemeToggle';
 //根布局组件
 export default function RootLayout({ children }) {
   return (
-    <html lang="zh-CN" className="dark">
+    <html lang="zh-CN">
       <head>
         <link rel="icon" href="/my-blog/favicon.ico" />
       </head>
-      <body className="bg-black dark:bg-black text-gray-800 dark:text-gray-100 transition-colors">
-        <div className="bg-black">Test</div>
+      <body className="bg-white dark:bg-black text-gray-800 dark:text-gray-100 transition-colors">
+        {children}
+        <ThemeToggle />
       </body>
     </html>
   );
