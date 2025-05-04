@@ -21,11 +21,18 @@ export default function Banner() {
   }, []);
 
   return (
-    <div className="w-full bg-blue-600 text-white text-center py-16">
-      <h1 className="text-5xl font-bold">欢迎来到我的blog</h1>
-      <p className="text-lg mt-4 min-h-[2rem]">
-        {texts.length > 0 && <Typewriter texts={texts} />}
-      </p>
+    <div
+      className="relative w-full bg-[url('/my-blog/banner.jpeg')] bg-cover bg-center h-96 text-white text-center py-16 animate-fade-in-down
+      flex flex-col items-center justify-center
+      before:absolute before:inset-0 before:bg-black before:bg-opacity-50 before:content-['']
+    "
+    >
+      <div className="relative z-10">
+        <h1 className="text-6xl font-bold">二九</h1>
+        <p className="text-lg mt-6 min-h-[2rem]">
+          {texts.length > 0 && <Typewriter texts={texts} />}
+        </p>
+      </div>
     </div>
   );
 }

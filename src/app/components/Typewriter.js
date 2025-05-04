@@ -5,7 +5,7 @@ import { useEffect, useState, useRef } from 'react';
 export default function Typewriter({
   texts = ['字段', '字段2', '字段3'],
   typingSpeed = 250, //每个字出现的速度(毫秒)
-  deletingSpeed = 200, //删除每个字的速度
+  deletingSpeed = 150, //删除每个字的速度
   pauseTime = 3000, //完整显示后停顿的时间
   playSound = false,
 }) {
