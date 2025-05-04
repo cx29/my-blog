@@ -22,10 +22,16 @@ export default function Banner() {
 
   return (
     <div
-      className="relative w-full bg-[url('/my-blog/banner.jpeg')] bg-cover bg-center h-96 text-white text-center py-16 animate-fade-in-down
+      className="relative w-full  h-96 text-white text-center py-16 animate-fade-in-down
       flex flex-col items-center justify-center
-      before:absolute before:inset-0 before:bg-black before:bg-opacity-50 before:content-['']
-    "
+      "
+      style={{
+        backgroundColor: '#000',
+        backgroundImage: "url('https://cx29.github.io/cx29/snake-dark.svg')",
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+      }}
     >
       <div className="relative z-10">
         <h1 className="text-6xl font-bold">二九</h1>
