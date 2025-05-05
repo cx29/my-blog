@@ -14,7 +14,7 @@ export default function Banner() {
         setTexts([data.hitokoto]);
       } catch (error) {
         console.log('获取一言失败：', error);
-        setTexts(['加载失败请稍后重试']);
+        setTexts(['talk is cheap. show me the code.']);
       }
     }
     fetchText();

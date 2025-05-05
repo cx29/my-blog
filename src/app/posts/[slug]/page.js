@@ -10,7 +10,7 @@ import { marked } from 'marked'; //将markdown转换为HTML
  * @returns
  */
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   return posts.map(post => ({ slug: post.slug })); //生成每个文章的路由参数
 }
 
@@ -18,11 +18,11 @@ export async function generateStaticParams() {
  * 单篇文章界面
  */
 export default async function PostPage({ params }) {
-  const { slug } = params; //取到动态路由参数slug
+  const { slug } = await params; //取到动态路由参数slug
   const post = await getPostBySlug(slug); //根据slug获取对应的文章数据
 
   if (!post) {
-    notFount(); //找不到就返回404
+    notFound(); //找不到就返回404
   }
 
   return (
