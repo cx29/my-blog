@@ -1,12 +1,40 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY === 0) {
+        setShowOverlay(false);
+      } else if (currentScrollY > lastScrollY) {
+        setShowOverlay(true);
+      } else {
+        setShowOverlay(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <nav className="absolute top-0 left-0 w-full z-20 px-6 py-4 text-white animate-fade-in-down">
+    <nav
+      className={`fixed top-0 left-0 w-full z-20 px-4 py-2 transition-all duration-300 text-white animate-fade-in-down ${
+        showOverlay
+          ? 'bg-black bg-opacity-30 backdrop-blur-md show-md'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="text-2xl font-bold">二九</div>
 
@@ -25,7 +53,7 @@ export default function Navbar() {
           </li>
           <li>
             <a href="" className="relative inline-block  group">
-              <span className="relative z-10">链接</span>
+              <span className="relative z-10">友链</span>
               <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-600 transition-all duration-all group-hover:w-full"></span>
             </a>
           </li>
