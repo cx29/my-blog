@@ -3,7 +3,8 @@
  */
 import { getAllPosts, getPostBySlug } from '@/lib/posts'; //引入获取文章内容和slug的方法
 import { notFound } from 'next/navigation'; //引入404处理
-import { marked } from 'marked'; //将markdown转换为HTML
+import { parseMarkdown } from '@/lib/markdown';
+import MermaidClient from '@/app/components/MermaidClient';
 
 /**
  * 生成所有文章的路由
@@ -26,12 +27,15 @@ export default async function PostPage({ params }) {
   }
 
   return (
-    <article>
+    <article className="px-4 md:px-0">
       <h1 className="text-3xl font-bold mb-2">{post.metadata.title}</h1>
       <p className="text-sm text-gray-500 mb-4">{post.metadata.date}</p>
+      {/* Mermaid 初始化 */}
+      <MermaidClient />
+      {/* Markdown渲染 */}
       <div
-        className="prose"
-        dangerouslySetInnerHTML={{ __html: marked(post.content) }} //把markdown文档转换为HTML文档
+        className="markdown-body"
+        dangerouslySetInnerHTML={{ __html: parseMarkdown(post.content) }} //把markdown文档转换为HTML文档
       />
     </article>
   );

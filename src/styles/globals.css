@@ -1,5 +1,16 @@
 /* src/styles/globals.css */
 
+/* css全局样式 */
+@import 'github-markdown-css/github-markdown.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dark .markdown-body {
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+.dark .markdown-body pre {
+  background-color: #161b22;
+}

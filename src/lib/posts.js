@@ -11,9 +11,10 @@ const postsDirectory = path.join(process.cwd(), 'src', 'posts');
 //获取所有的markdown文件,按时间排序
 export async function getAllPosts() {
   const fileNames = await fs.readdir(postsDirectory); //读取文件夹下所有文件名
+  const markdownFiles = fileNames.filter(name => name.endsWith('.md'));
 
   const posts = await Promise.all(
-    fileNames.map(async fileName => {
+    markdownFiles.map(async fileName => {
       const fullPath = path.join(postsDirectory, fileName); //得到每个文件的完整路径
       const fileContents = await fs.readFile(fullPath, 'utf8'); //读取markdown文件内容
       const { data } = matter(fileContents); //提取FrontMatter里面的metadata
